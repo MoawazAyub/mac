@@ -1,23 +1,27 @@
-import logo from './logo.svg';
 import './App.scss';
+import Form from 'react-bootstrap/Form';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Form>
+      {['checkbox', 'radio'].map((type) => (
+        <div key={`default-${type}`} className="mb-3">
+          <Form.Check 
+            type={type}
+            id={`default-${type}`}
+            label={`default ${type}`}
+          />
+
+          <Form.Check
+            disabled
+            type={type}
+            label={`disabled ${type}`}
+            id={`disabled-default-${type}`}
+          />
+        </div>
+      ))}
+    </Form>
     </div>
   );
 }

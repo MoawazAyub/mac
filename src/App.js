@@ -1,27 +1,14 @@
 import './App.scss';
-import Form from 'react-bootstrap/Form';
+import Login from './pages/shared/login';
+import { default as AdminWelcome } from './pages/admin/welcome';
+import { default as EmployeeWelcome } from './pages/employee/welcome';
 
 function App() {
   return (
     <div className="App">
-      <Form>
-      {['checkbox', 'radio'].map((type) => (
-        <div key={`default-${type}`} className="mb-3">
-          <Form.Check 
-            type={type}
-            id={`default-${type}`}
-            label={`default ${type}`}
-          />
-
-          <Form.Check
-            disabled
-            type={type}
-            label={`disabled ${type}`}
-            id={`disabled-default-${type}`}
-          />
-        </div>
-      ))}
-    </Form>
+      <Login></Login>
+      <AdminWelcome></AdminWelcome>
+      <EmployeeWelcome></EmployeeWelcome>
     </div>
   );
 }

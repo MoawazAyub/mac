@@ -26,6 +26,19 @@
       "react-app/jest"
     ]
   },
+  "lint-staged": {
+    "*.{js,yml,yaml,css,scss,ts,tsx,md}": [
+      "prettier --write"
+    ],
+    "*.js": [
+      "eslint --max-warnings=0 --ignore-path .gitignore --ignore-pattern internals/ --ignore-pattern dist/"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -37,5 +50,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
+    "pretty-quick": "^3.1.3"
   }
 }
